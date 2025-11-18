@@ -11,9 +11,9 @@ const TopBar = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const promos = [
-    { icon: <Zap className="h-4 w-4 text-yellow-300" />, text: 'Flash Sale! 24 hours only - Up to 70% OFF' },
-    { icon: <Truck className="h-4 w-4 text-blue-300" />, text: 'Free shipping on orders over $50' },
-    { icon: <Clock className="h-4 w-4 text-green-300" />, text: 'Limited time offer - Buy 2 Get 1 Free' },
+    { icon: <Zap className="h-4 w-4 text-yellow-300" />, text: 'Flash Sale! Chỉ trong 24 giờ - Giảm đến 70%' },
+    { icon: <Truck className="h-4 w-4 text-blue-300" />, text: 'Miễn phí vận chuyển cho đơn hàng trên 50$' },
+    { icon: <Clock className="h-4 w-4 text-green-300" />, text: 'Ưu đãi có hạn - Mua 2 Tặng 1' },
   ];
 
   useEffect(() => {
@@ -37,9 +37,8 @@ const TopBar = () => {
           {/* Left side - Animated Promotion */}
           <div className="hidden overflow-hidden md:block">
             <div
-              className={`flex items-center transition-all duration-500 ${
-                isVisible ? 'transform-none opacity-100' : '-translate-y-4 opacity-0'
-              }`}
+              className={`flex items-center transition-all duration-500 ${isVisible ? 'transform-none opacity-100' : '-translate-y-4 opacity-0'
+                }`}
             >
               <div className="mr-2 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-primary-600">
                 {promos[currentPromo].icon}
@@ -70,7 +69,7 @@ const TopBar = () => {
             <HStack spacing={6}>
               <MapPin className="h-3.5 w-3.5 animate-pulse" />
               <Link href={ROUTER.HOME} className="transition-colors hover:text-primary-300">
-                Find a Store
+                Tìm cửa hàng gần bạn
               </Link>
             </HStack>
           </HStack>

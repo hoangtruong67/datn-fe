@@ -47,14 +47,14 @@ const Header = () => {
         <HStack pos="right" spacing={isMobile ? 4 : 16} className="">
           <Button variant="transparent" className="relative hidden lg:flex" onClick={handleOrdersClick}>
             <Package className="text-white" />
-            <span className="ml-3">Orders</span>
+            <span className="ml-3">Đơn hàng</span>
           </Button>
 
           <Cart />
 
           {!user ? (
             <Link href={ROUTER.SIGN_IN}>
-              <Button className="rounded-full">Sign In</Button>
+              <Button className="rounded-full">Đăng nhập</Button>
             </Link>
           ) : (
             <UserInfo />

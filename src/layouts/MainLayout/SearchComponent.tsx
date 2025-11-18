@@ -105,7 +105,7 @@ const SearchComponent = () => {
           ref={resultsRef}
           className="absolute top-full right-0 left-0 z-50 mt-1 max-w-[500px] overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg"
         >
-          <H5 className=" p-2 font-poppins text-grey-600">Search Result</H5>
+          <H5 className=" p-2 font-poppins text-grey-600">Kết quả tìm kiếm</H5>
           {isFetching ? (
             <div className="flex h-20 items-center justify-center">
               <Loader2 className="h-6 w-6 animate-spin text-primary" />
@@ -156,12 +156,13 @@ const SearchComponent = () => {
             </div>
           ) : searchTerm.trim().length > 1 ? (
             <div className="flex h-20 flex-col items-center justify-center">
-              <p className="text-gray-500">No products found</p>
-              <p className="text-gray-400 text-sm">Try different keywords</p>
+              <p className="text-gray-500">Không tìm thấy sản phẩm</p>
+              <p className="text-gray-400 text-sm">Hãy thử từ khóa khác</p>
             </div>
+
           ) : (
             <div className="flex h-20 items-center justify-center">
-              <p className="text-gray-500">Type at least 2 characters to search</p>
+              <p className="text-gray-500">Nhập tối thiểu 2 ký tự để tìm kiếm</p>
             </div>
           )}
         </div>

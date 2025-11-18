@@ -15,7 +15,9 @@ const Footer = () => {
             <Link href={ROUTER.HOME}>
               <Image src="/images/logo.png" alt="logo" width={150} height={92} />
             </Link>
-            <p className="mt-4 text-gray-600 text-sm">Your trusted online marketplace for quality products and exceptional service.</p>
+            <p className="mt-4 text-gray-600 text-sm">
+              Nền tảng mua sắm trực tuyến uy tín với sản phẩm chất lượng và dịch vụ tận tâm.
+            </p>
             <HStack className="mt-6" spacing={16}>
               <Link href="#" aria-label="Facebook">
                 <Facebook className="h-5 w-5 text-gray-600 hover:text-primary-600" />
@@ -31,45 +33,45 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 font-semibold text-lg">Quick Links</h3>
+            <h3 className="mb-4 font-semibold text-lg">Liên kết nhanh</h3>
             <VStack spacing={12} align="start">
               <Link href={ROUTER.HOME} className="text-gray-600 hover:text-primary-600">
-                Home
+                Trang chủ
               </Link>
               <Link href="/products" className="text-gray-600 hover:text-primary-600">
-                Products
+                Sản phẩm
               </Link>
               <Link href="/about" className="text-gray-600 hover:text-primary-600">
-                About Us
+                Về chúng tôi
               </Link>
               <Link href="/contact" className="text-gray-600 hover:text-primary-600">
-                Contact
+                Liên hệ
               </Link>
             </VStack>
           </div>
 
           {/* Customer Service */}
           <div>
-            <h3 className="mb-4 font-semibold text-lg">Customer Service</h3>
+            <h3 className="mb-4 font-semibold text-lg">Hỗ trợ khách hàng</h3>
             <VStack spacing={12} align="start">
               <Link href="/faq" className="text-gray-600 hover:text-primary-600">
-                FAQ
+                Câu hỏi thường gặp
               </Link>
               <Link href="/shipping" className="text-gray-600 hover:text-primary-600">
-                Shipping Policy
+                Chính sách vận chuyển
               </Link>
               <Link href="/returns" className="text-gray-600 hover:text-primary-600">
-                Returns & Refunds
+                Đổi trả & Hoàn tiền
               </Link>
               <Link href="/privacy" className="text-gray-600 hover:text-primary-600">
-                Privacy Policy
+                Chính sách bảo mật
               </Link>
             </VStack>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 font-semibold text-lg">Contact Us</h3>
+            <h3 className="mb-4 font-semibold text-lg">Liên hệ</h3>
             <VStack spacing={12} align="start">
               <HStack spacing={8}>
                 <Mail className="h-5 w-5 text-primary-600" />
@@ -80,9 +82,9 @@ const Footer = () => {
                 <span className="text-gray-600">+1 (123) 456-7890</span>
               </HStack>
               <p className="text-gray-600">
-                123 Commerce Street
+                123 Đường Thương Mại
                 <br />
-                City, State 12345
+                Thành phố, Bang 12345
               </p>
             </VStack>
           </div>
@@ -90,14 +92,16 @@ const Footer = () => {
 
         <div className="mt-12 border-gray-300 border-t pt-6">
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <p className="text-gray-600 text-sm">© {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+            <p className="text-gray-600 text-sm">
+              © {new Date().getFullYear()} Tên Công Ty Của Bạn. Mọi quyền được bảo lưu.
+            </p>
             <div className="mt-4 md:mt-0">
               <HStack spacing={16}>
                 <Link href="/terms" className="text-gray-600 text-sm hover:text-primary-600">
-                  Terms of Service
+                  Điều khoản dịch vụ
                 </Link>
                 <Link href="/privacy" className="text-gray-600 text-sm hover:text-primary-600">
-                  Privacy Policy
+                  Chính sách bảo mật
                 </Link>
               </HStack>
             </div>
