@@ -1,3 +1,4 @@
+
 import { useCartQuery } from '@/api/cart/queries';
 import Breadcrumb from '@/components/Breadcrumb';
 import H3 from '@/components/text/H3';
@@ -28,7 +29,6 @@ const CartPageWebsite = () => {
   const [isAllSelected, setIsAllSelected] = useState(false);
   const router = useRouter();
 
-  // Fetch cart from API if user is logged in
   const { data: cartData, isFetching: isCartLoading } = useCartQuery({
     enabled: !!user?.id,
     onSuccess: (data) => {
@@ -37,18 +37,17 @@ const CartPageWebsite = () => {
       }
     },
   });
-  // Calculate total price
+
   const totalPrice = carts
     .filter((item) => selectedItems.includes(item._id || ''))
     .reduce((total, item) => total + item.price * item.quantity, 0);
 
-  // Handle select all
   useEffect(() => {
     if (isAllSelected) {
       setSelectedItems(carts.map((item) => item._id || ''));
     }
   }, [isAllSelected, carts]);
-  // Handle select all checkbox
+
   const handleSelectAll = () => {
     setIsAllSelected(!isAllSelected);
     if (!isAllSelected) {
@@ -57,7 +56,7 @@ const CartPageWebsite = () => {
       setSelectedItems([]);
     }
   };
-  // Handle item selection
+
   const handleSelectItem = (id: string) => {
     if (selectedItems.includes(id)) {
       setSelectedItems(selectedItems.filter((item) => item !== id));
@@ -69,7 +68,7 @@ const CartPageWebsite = () => {
       }
     }
   };
-  // Handle remove item
+
   const handleRemoveItem = async (id: string) => {
     try {
       await removeFromCart(id);
@@ -78,7 +77,7 @@ const CartPageWebsite = () => {
       toast.error('Xóa sản phẩm khỏi giỏ hàng thất bại!');
     }
   };
-  // Handle update quantity
+
   const handleUpdateQuantity = async (id: string, quantity: number) => {
     if (quantity < 1) return;
 
@@ -88,25 +87,26 @@ const CartPageWebsite = () => {
       toast.error('Cập nhật số lượng sản phẩm thất bại!');
     }
   };
-  // Handle checkout
+
   const handleCheckout = () => {
     if (selectedItems.length === 0) {
       toast.error('Vui lòng chọn ít nhất một sản phẩm!');
       return;
     }
 
-    // Get selected items from cart
     const checkoutItems = carts.filter((item) => selectedItems.includes(item._id || ''));
 
-    // Set items in checkout store
     useCheckoutStore.getState().setItems(checkoutItems);
 
-    // Navigate to checkout page
     router.push(ROUTER.CHECKOUT);
   };
+
   return (
     <div className="bg-[#F5F5F5] pb-10">
-      <Breadcrumb breadcrumbs={[{ name: 'Home', path: ROUTER.HOME }, { name: 'Cart' }]} className="bg-white" />
+      <Breadcrumb
+        breadcrumbs={[{ name: 'Trang chủ', path: ROUTER.HOME }, { name: 'Giỏ hàng' }]}
+        className="bg-white"
+      />
 
       <Container className="mt-8 text-sm">
         <H3>Giỏ hàng</H3>
@@ -144,7 +144,10 @@ const CartPageWebsite = () => {
 
                   <div className="grid grid-cols-[2.5fr_1fr_1fr_1fr_1fr] py-4">
                     <HStack align="start" spacing={12}>
-                      <Checkbox checked={selectedItems.includes(cart._id || '')} onCheckedChange={() => handleSelectItem(cart._id || '')} />
+                      <Checkbox
+                        checked={selectedItems.includes(cart._id || '')}
+                        onCheckedChange={() => handleSelectItem(cart._id || '')}
+                      />
                       <VStack>
                         <p className="line-clamp-2">{cart.name}</p>
 
@@ -194,7 +197,9 @@ const CartPageWebsite = () => {
 
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <div className="text-gray-500 text-sm">Tổng tiền ({selectedItems.length} sản phẩm):</div>
+                  <div className="text-gray-500 text-sm">
+                    Tổng tiền ({selectedItems.length} sản phẩm):
+                  </div>
                   <div className="font-semibold text-lg text-primary-600">{formatNumber(totalPrice)}</div>
                 </div>
 
